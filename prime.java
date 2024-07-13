@@ -1,28 +1,39 @@
-public class prime
+public class prime 
+{   
+
+public static void main(String[] args)    
+{   
+int num = 20;   
+System.out.print("Alternate prime numbers up to " + num+" are: ");      
+printAlternatePrimeNumber(num);   
+}    
+static int checkPrime(int num)   
+{   
+int i, flag = 0;     
+for(i = 2; i<= num / 2; i++)   
+{   
+if(num % i == 0)   
+{   
+flag = 1;   
+break;   
+}   
+}
+if(flag == 0)
+return 1;
+else
+return 0;
+}
+static void printAlternatePrimeNumber(int n)
 {
-	public static void main(String[] args)
-	{
-		int n=20;
-		System.out.println("Alternative primes numbers upto 20 are ");
-		for(int i=2;i<=n;i++)
-		{
-			int t=0;
-			boolean p=true;
-			for(int j=1;j<=i;j++)
-			{
-				if(i%j==0)
-					t++;
-			}
-			if(t==2)
-			{
-				if(p==true)
-				{
-					System.out.println(i+" ");
-					p=false;
-				}
-				else
-					p=true;
-			}
-		}
-	}
+int temp = 2;
+for(int num = 2; num <= n-1; num++)
+{
+if (checkPrime(num) == 1)
+{
+if (temp % 2 == 0)
+System.out.print(num + " ");
+temp ++;
+}
+}
+}
 }
